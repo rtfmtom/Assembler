@@ -7,9 +7,64 @@
 
 # Assembler
 
-Assembler for the Hack CPU.  
+Assembler for the Hack CPU.
 
 A summary reference of the Hack assembly language is provided below. A more in depth explanation of the Hack CPU architecture and instruction set can be found [here](https://github.com/rtfmtom/CPU/blob/main/README.md#cpu).
+
+## Table of Contents
+
+- [Usage](#usage)
+- [Language Reference](#language-reference)
+  - [A-instruction](#a-instruction)
+  - [C-instruction](#c-instruction)
+  - [Jumps](#jumps)
+  - [Operators](#operators)
+  - [Symbols](#symbols)
+  - [Labels](#labels)
+
+## Usage
+
+Build and run the assembler:
+```bash
+go run . <input.asm>
+```
+
+The assembler outputs machine code to stdout in hexadecimal format by default.
+
+**Output formats:**
+
+```bash
+go run . -m hex program.asm    // hexadecimal (default)
+go run . -m bin program.asm    // binary
+```
+
+**Example:**
+
+```bash
+go run . testdata/Add.asm
+```
+
+Output:
+```
+0002
+ec10
+0003
+e090
+0000
+e308
+```
+
+To save output to a file, use standard output redirection:
+```bash
+go run . program.asm > output.hex
+go run . -m bin program.asm > output.bin
+```
+
+_Note: To output a file compatible with the Digital circuit simulator, it must be in
+`.hex` format and prepended with `v2.0 raw`:_
+```bash
+echo "v2.0 raw" > output.hex && go run . program.asm >> output.hex
+```
 
 ## Language Reference
 
