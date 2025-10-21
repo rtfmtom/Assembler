@@ -9,7 +9,7 @@
 
 Assembler for the Hack CPU.
 
-A summary reference of the Hack assembly language is provided below. A more in depth explanation of the Hack CPU architecture and instruction set can be found [here](https://github.com/rtfmtom/CPU/blob/main/README.md#cpu).
+A summary reference of the Hack assembly language is provided below. A more in depth explanation of the Hack CPU architecture and instruction set can be found [here](https://github.com/rtfmtom/CPU).
 
 ## Table of Contents
 
@@ -177,5 +177,6 @@ Labels mark instruction addresses and are defined using parentheses: `(LABEL_NAM
 ```
 
 Labels are resolved during the first pass of assembly, and their addresses are stored in the symbol table before the second pass translates instructions to machine code.
+
 
 
